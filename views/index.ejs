@@ -30,7 +30,7 @@
         <% for (let i= 0; i < posts.length; i++) { %>
 
         <div class="post-preview">
-          <a href="post">
+          <a href="/posts/<%= posts[i]._id %>">
             <h2 class="post-title">
               <%= posts[i].title %>
             </h2>
@@ -38,9 +38,9 @@
               <%= posts[i].description %>
             </h3>
           </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 24, 2019</p>
+          <p class="post-meta">Date:
+      
+            <%= posts[i].dateCreated %></p>
         </div>
         <hr>
         <% } %>
