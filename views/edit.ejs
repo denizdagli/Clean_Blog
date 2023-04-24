@@ -14,36 +14,36 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Add New Post</h1>
+            <h1>Edit The Post</h1>
 
           </div>
         </div>
       </div>
     </div>
   </header>
- 
+
   <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form method="POST" action="/posts" > <!post methodu ve gonderildiğinde gidecek yer<!novalidate>
+        <form method="POST" action="/posts/<%= post._id %>?_method=PUT" > <!post methodu ve gonderildiğinde gidecek yer<!novalidate>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Title</label>
-              <input type="text" class="form-control" placeholder="Name" id="name" name="title" required data-validation-required-message="Please enter your name.">
+              <input type="text" class="form-control" placeholder="Name" id="name" name="title" value = "<%= post.title %>"required data-validation-required-message="Please enter your name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Detail</label>
-              <textarea rows="5" class="form-control" placeholder="description" id="description" name="description" required data-validation-required-message="Please enter a message."></textarea>
+              <textarea rows="5" class="form-control" placeholder="description" id="description" name="description"  required data-validation-required-message="Please enter a message."><%= post.description %></textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Update</button>
         </form>
       </div>
     </div>

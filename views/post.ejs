@@ -40,7 +40,16 @@
   </article>
 
   <hr>
-
+  <div class="col-xl-4 col-lg-5">
+    <div class="tm-bg-gray tm-share-box">
+      <div class="text-center">
+        <a href="/posts/edit/<%= post._id %>" class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download"><span>Update Details</span></a>
+      </div>
+      <div class="text-center">
+      <button class="btn btn-danger btn-lg p-0 tm-btn-animate tm-btn-download tm-icon-download"><span>Delete</span></button>
+      </div>								
+    </div>
+  </div>
   <!-- Footer -->
   <%- include ('partials/_footer') -%>
 
