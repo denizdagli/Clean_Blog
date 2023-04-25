@@ -19,7 +19,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method', {
+  methods: ['POST', 'GET'],
+}));
 
 //ROUTES
 app.get('/', async (req, res) => {
@@ -62,7 +64,11 @@ app.put('/posts/:id', async (req, res) => {
   res.redirect(`/posts/${req.params.id}`)
 });
 
-
+app.delete('/posts/:id', async (req, res) => { //devam
+  const post = await Post.findOne({ _id: req.params.id });
+  await Post.findByIdAndRemove(req.params.id);
+  res.redirect('/');
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port} `);
